@@ -28,29 +28,6 @@ li {
   padding-bottom: 5px;
 }
 
-a {
-  position: relative;
-  display: inline-block;
-  &:after {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    border-bottom: 1px solid;
-    content: '';
-    opacity: 0;
-    transition: transform 0.3s, opacity 0.4s;
-    transform: translateX(50%);
-  }
-  @include attention() {
-    text-decoration: none;
-    &:after {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-}
-
 i {
   color: $brand-primary;
   margin-right: 10px;
