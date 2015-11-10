@@ -1,37 +1,3 @@
 // - - - - - - - - - - - - - - - - - - -
 // - - typography
 // global typography styles
-
-.t-curly-braces {
-  position: relative;
-  font-size: font-size('large');
-  transition: transform 0.3s, opacity 0.4s;
-  &:before,
-  &:after {
-    position: absolute;
-    left: inherit;
-    right: inherit;
-    top: inherit;
-    opacity: 0;
-    transition: transform 0.3s, opacity 0.4s;
-  }
-  &:before {
-    content: '{';
-    margin-left: -14px;
-    transform: translateX(-20px);
-  }
-  &:after {
-    margin-left: 5px;
-    border-bottom: none;
-    content: '}';
-    transform: translateX(20px);
-  }
-  @include attention {
-    text-decoration: none;
-    &:before,
-    &:after {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-}

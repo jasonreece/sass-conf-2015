@@ -30,5 +30,11 @@ li {
 
 i {
   color: $brand-primary;
-  margin-right: 10px;
+  margin-right: 5px;
+}
+
+a {
+  @include attention() {
+    text-decoration: none;
+  }
 }
