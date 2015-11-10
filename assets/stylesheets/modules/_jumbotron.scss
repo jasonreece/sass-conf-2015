@@ -1,0 +1,8 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - jumbotron module
+// styles for the jumbotron module
+
+// remove
+.jumbotron {
+  @include border-radius(0);
+}

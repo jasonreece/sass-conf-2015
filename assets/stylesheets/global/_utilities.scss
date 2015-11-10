@@ -1,0 +1,50 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - utilities
+// global extends, mixins, functions, and utility classes
+
+// - - - - - - - - - - - - - - - - - - -
+// - - extends
+
+
+// - - - - - - - - - - - - - - - - - - -
+// - - mixins
+
+// - - attention
+// adds accessibility pseudo selectors to hover states.
+@mixin attention() {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
+
+// - - - - - - - - - - - - - - - - - - -
+// - - functions
+
+// map get on nested lists
+// usage: @each $key, $value in map-deep-get($fonts, 'font-size-multiplier') {...}
+// returns: (large: 3, medium: 1.5 , small: 0.75)
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+// sets font-family with key from the roboto list
+// usage: font-family: roboto('thin');
+// returns: "Roboto-Thin", sans-serif
+@function roboto($key) {
+  $font: map-deep-get($fonts, 'font-family', 'roboto');
+  @if map-has-key($font, $key) {
+    @return map-get($font, $key);
+  }
+  @warn "Unknown `#{$key}` in $fonts.";
+  @return null;
+}
+
+
+// - - - - - - - - - - - - - - - - - - -
+// - - utilities

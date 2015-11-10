@@ -1,0 +1,26 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - settings
+// global maps and variables
+
+// - - typography
+
+$fonts: (
+  // creates @font-face rulesets
+  'font-face': (
+    'roboto': (
+      'Roboto-Light',
+      'Roboto-LightItalic',
+      'Roboto-Bold'
+    )
+  ),
+
+  // creates font stack for font-family declarations
+  // used with font-family function
+  'font-family': (
+    'roboto': (
+      'light': ('Roboto-Light', sans-serif),
+      'light-italic': ('Roboto-LightItalic', sans-serif),
+      'bold': ('Roboto-Bold', sans-serif)
+    )
+  )
+);

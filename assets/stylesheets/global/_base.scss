@@ -1,0 +1,57 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - base
+// project defaults for base elements - h1-h6, p, a, etc.
+
+// create @font-face for all roboto fonts
+@each $font-family in map-deep-get($fonts, 'font-face', 'roboto') {
+  @font-face {
+    font-family: $font-family;
+    src:
+      url('../fonts/roboto/#{$font-family}/#{$font-family}.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/roboto/#{$font-family}/#{$font-family}.woff') format('woff'),
+      url('../fonts/roboto/#{$font-family}/#{$font-family}.ttf') format('truetype'),
+      url('../fonts/roboto/#{$font-family}/#{$font-family}.svg##{$font-family}') format('svg');
+  }
+}
+
+body {
+  font-family: roboto('light');
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+a {
+  position: relative;
+  display: inline-block;
+  &:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid;
+    content: '';
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.4s;
+    transform: translateX(50%);
+  }
+  @include attention() {
+    text-decoration: none;
+    &:after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+i {
+  color: $brand-primary;
+  margin-right: 10px;
+}
