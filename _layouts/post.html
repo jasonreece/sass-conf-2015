@@ -2,49 +2,47 @@
 layout: default
 ---
 
- <article class="m-b-lg">
-  <div class="bg-primary m-b p-b">
+<article class="m-b-lg">
+  <div class="bg-primary m-b p-y-lg">
     <div class="container">
       <h1 class="display-1">{{ page.name }}</h1>
       <h2>{{ page.title }}</h2>
+
+      <ul class="s-list-links s-list-links--light">
+        {% if page.twitter != nil %}
+          <li>
+            <i class="fa fa-twitter"></i>
+            <a href="http://www.twitter.com/{{ page.twitter }}" target="_blank">{{page.twitter}}</a>
+          </li>
+        {% endif %}
+        {% if page.github != nil %}
+          <li>
+            <i class="fa fa-github"></i>
+            <a href="http://www.github.com/{{ page.github }}" target="_blank">{{page.github}}</a>
+          </li>
+        {% endif %}
+        {% if page.slides != nil %}
+          <li>
+            <i class="fa fa-pencil"></i>
+            <a href="{{ page.slides }}" target="_blank">{{ page.slides }}</a>
+          </li>
+        {% endif %}
+      </ul>
     </div>
   </div>
 
-  <ul class="container">
-    {% if page.slides != 'inactive' %}
-      <li>
-        <i class="fa fa-sticky-note-o"></i>
-        <a href="{{ page.slides }}" target="_blank">{{ page.slides }}</a>
-      </li>
+  <div class="container p-y post">
+    {% if page.links %}
+      <h2>Additional Links</h2>
+      <ul class="s-list-links">
+        {% for link in page.links %}
+          <li>
+            <i class="fa fa-external-link"></i>
+            <a href="{{ link }}" target="_blank">{{ link }}</a>
+          </li>
+        {% endfor %}
+      </ul>
     {% endif %}
-    {% if page.twitter != 'inactive' %}
-      <li>
-        <i class="fa fa-twitter"></i>
-        <a href="http://www.twitter.com/{{ page.twitter }}" target="_blank">@{{page.twitter}}</a>
-      </li>
-    {% endif %}
-  </ul>
-
-  {% if page.notes != 'inactive' %}
-    <div class="container">
-      <div class="card m-b">
-        <div class="card-block">
-          {{ content }}
-          {% if page.links %}
-            <section>
-              <h1>Links:</h1>
-              <ul class="m-b-lg">
-                {% for link in page.links %}
-                  <li>
-                    <i class="fa fa-external-link"></i>
-                    <a href="{{ link }}" target="_blank">{{ link }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </section>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  {% endif %}
+    {{ content }}
+  </div>
 </article>

@@ -18,7 +18,26 @@
 @import 'libs/library-variable-overrides';
 
 // - - bootstrap 4
-@import 'bower_components/bootstrap/scss/bootstrap';
+// core variables and mixins
+@import 'bower_components/bootstrap/scss/variables';
+@import 'bower_components/bootstrap/scss/mixins';
+// - - reset and dependencies
+@import 'bower_components/bootstrap/scss/normalize';
+@import 'bower_components/bootstrap/scss/print';
+// - - core css
+@import 'bower_components/bootstrap/scss/reboot';
+@import 'bower_components/bootstrap/scss/type';
+@import 'bower_components/bootstrap/scss/images';
+@import 'bower_components/bootstrap/scss/code';
+@import 'bower_components/bootstrap/scss/grid';
+// - - components
+@import 'bower_components/bootstrap/scss/card';
+@import 'bower_components/bootstrap/scss/jumbotron';
+@import 'bower_components/bootstrap/scss/list-group';
+
+// - - utility classes
+@import 'bower_components/bootstrap/scss/utilities';
+@import 'bower_components/bootstrap/scss/utilities-spacing';
 
 // - - font-awesome 4.4.0
 @import 'bower_components/font-awesome/scss/font-awesome';

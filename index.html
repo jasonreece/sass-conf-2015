@@ -3,22 +3,28 @@ layout: default
 ---
 
 <div class="container p-b-lg">
-  {% for post in site.posts %}
+  {% for post in site.posts reversed %}
     <article class="card m-b">
       <div class="card-block">
         <h1>{{post.name}}</h1>
         <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-        <ul>
-          {% if post.slides != 'inactive' %}
-            <li>
-              <i class="fa fa-sticky-note-o"></i>
-              <a href="{{ post.slides }}" target="_blank">{{ post.slides }}</a>
-            </li>
-          {% endif %}
-          {% if post.twitter != 'inactive' %}
+        <ul class="s-list-links">
+          {% if post.twitter != nil %}
             <li>
               <i class="fa fa-twitter"></i>
-              <a href="http://www.twitter.com/{{ post.twitter }}" target="_blank">@{{post.twitter}}</a>
+              <a href="http://www.twitter.com/{{ post.twitter }}" target="_blank">{{post.twitter}}</a>
+            </li>
+          {% endif %}
+          {% if post.github != nil %}
+            <li>
+              <i class="fa fa-github"></i>
+              <a href="http://www.github.com/{{ post.github }}" target="_blank">{{post.github}}</a>
+            </li>
+          {% endif %}
+          {% if post.slides != nil %}
+            <li>
+              <i class="fa fa-pencil"></i>
+              <a href="{{ post.slides }}" target="_blank">{{ post.slides }}</a>
             </li>
           {% endif %}
         </ul>

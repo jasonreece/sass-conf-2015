@@ -1,3 +1,26 @@
 // - - - - - - - - - - - - - - - - - - -
 // - - skin
 // global skin styles - gradients, colors, box-shadows, etc.
+
+.s-list-links {
+  padding: 0;
+  list-style: none;
+
+  a {
+    word-wrap: break-word;
+    @include attention() {
+      text-decoration: underline;
+    }
+  }
+}
+
+.s-list-links--light a,
+.s-list-links--light i {
+  color: #fff;
+}
+
+.s-list-links--light a {
+  &:visited {
+    color: #fff;
+  }
+}
