@@ -30,8 +30,8 @@ slides: http://roy.io/sassconf2015
 `hsla($hue, $saturation, $lightness, $alpha);` creates a color from hue, saturation, lightness, and alpha values
 
 {% highlight scss %}
-  // sass pink
-  hsla(330, 50, 60, 0.5);
+// sass pink
+hsla(330, 50, 60, 0.5);
 {% endhighlight %}
 
 `hue(#cc6699);` returns the hue component of a color.
@@ -43,16 +43,16 @@ slides: http://roy.io/sassconf2015
 `adjust-hue($color, $degrees);` changes the hue of a color.
 
 {% highlight scss %}
-  // create color wheel with adjust-hue
-  $number-of-colors: 18;
-  $degrees: 360 / $number-of-colors;
+// create color wheel with adjust-hue
+$number-of-colors: 18;
+$degrees: 360 / $number-of-colors;
 
-  @for $i from 0 to $number-of-colors {
-    background: adjust-hue(
-      red,
-      $i * $degrees
-    );
-  }
+@for $i from 0 to $number-of-colors {
+  background: adjust-hue(
+    red,
+    $i * $degrees
+  );
+}
 {% endhighlight %}
 
 `lighten(#cc6699, 20%);` makes a color lighter.
@@ -88,11 +88,11 @@ slides: http://roy.io/sassconf2015
 `str-insert();` insert string into other string
 
 {% highlight scss %}
-  str-insert("something", "xx", 5);
-  // returns 'someXXthing'
+str-insert("something", "xx", 5);
+// returns 'someXXthing'
 
-  str-insert("something", "xx", -4);
-  // returns 'somethXXing'
+str-insert("something", "xx", -4);
+// returns 'somethXXing'
 {% endhighlight %}
 
 `str-index();` returns the index of the first occurance of $substring in $string.
@@ -108,8 +108,8 @@ slides: http://roy.io/sassconf2015
 `percentage();` - converts to percentage
 
 {% highlight scss %}
-  percentage(0.5);
-  // returns 50%
+percentage(0.5);
+// returns 50%
 {% endhighlight %}
 
 `round();` rounds a number down to the previous whole number
@@ -121,12 +121,12 @@ slides: http://roy.io/sassconf2015
 `abs();` returns absolute value
 
 {% highlight scss %}
-  $light1: lightness($color1); // 50%
-  $light2: lightness($color2); // 100%
+$light1: lightness($color1); // 50%
+$light2: lightness($color2); // 100%
 
-  $diff: $light1 - $light2; // -50%
+$diff: $light1 - $light2; // -50%
 
-  $diff: abs($light1 - $light2); // 50%
+$diff: abs($light1 - $light2); // 50%
 {% endhighlight %}
 
 `min();` return lowest value in list
@@ -174,8 +174,8 @@ slides: http://roy.io/sassconf2015
 `feature-exists();` - does feature exist in this version of Sass
 
 {% highlight scss %}
-  feature-exists(at-error)
-  => true // supports @error
+feature-exists(at-error)
+=> true // supports @error
 {% endhighlight %}
 
 `variable-exists();` - returns boolean determining if variable exists
@@ -199,8 +199,8 @@ slides: http://roy.io/sassconf2015
 `call();` - calls function
 
 {% highlight scss %}
-  call(lighten, #cc6699, 17%)
-  // #e2a7c4
+call(lighten, #cc6699, 17%)
+// #e2a7c4
 {% endhighlight %}
 
 ## Miscellaneous

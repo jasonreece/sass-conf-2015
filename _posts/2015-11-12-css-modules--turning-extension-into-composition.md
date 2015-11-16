@@ -28,16 +28,16 @@ Works on CSS Modules
 ### @extend - what are you?
 
 {% highlight scss %}
-  .Shadow--Obnoxious {
-    box-shadow: 0 0px 40px 10px currentColor;
+.Shadow--Obnoxious {
+  box-shadow: 0 0px 40px 10px currentColor;
+}
+.Button--CallToAction {
+  @extend .Button;
+  color: fuchsia;
+  &:hover {
+    @extend .Shadow--Obnoxious;
   }
-  .Button--CallToAction {
-    @extend .Button;
-    color: fuchsia;
-    &:hover {
-      @extend .Shadow--Obnoxious;
-    }
-  }
+}
 {% endhighlight %}
 
 a CallToAction button is a Button, and is a obnoxiously shadowed thing when hovered.
@@ -59,29 +59,29 @@ a CallToAction button is a Button, and is a obnoxiously shadowed thing when hove
 What happens when your markup is dynamic?
 
 {% highlight js %}
-  import styles from './signup-form.scss'
+import styles from './signup-form.scss'
 {% endhighlight %}t
 
 ## But then what is styles?
 
 {% highlight css %}
-  /* CSS */
-  .normal {
-    /* styles here... */
-  }
-  /* ICSS */
-  :export {
-    normal: normal_f34f7fa0;
-  }
-  .normal_f34f7fa0 {
-    /* styles unchanged... */
-  }
+/* CSS */
+.normal {
+  /* styles here... */
+}
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
 {% endhighlight %}
 
 {% highlight js %}
-  /* components/submit-button.jsx */
-  import styles from './signup-form.scss'
-  return <button className="{sytles.normal}">Submit</button>
+/* components/submit-button.jsx */
+import styles from './signup-form.scss'
+return <button className="{sytles.normal}">Submit</button>
 {% endhighlight %}
 
 

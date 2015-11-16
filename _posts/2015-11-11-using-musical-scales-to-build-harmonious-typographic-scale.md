@@ -84,14 +84,14 @@ links:
 [typetuner.com](http://typetuner.com)
 
 {% highlight scss %}
-  @include set-hierarchy( $list );
-  @include add-breakpoint(
-    $label,
-    $min-width,
-    $font-size,
-    $line-height,
-    $scale
-  );
-  @include remove-breakpoint( $label );
-  @include type-tune( extend | class );
+@include set-hierarchy( $list );
+@include add-breakpoint(
+  $label,
+  $min-width,
+  $font-size,
+  $line-height,
+  $scale
+);
+@include remove-breakpoint( $label );
+@include type-tune( extend | class );
 {% endhighlight %}

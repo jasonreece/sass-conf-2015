@@ -41,27 +41,27 @@ links:
 [https://drafts.css-houdini.org/css-properties-values-api](https://drafts.css-houdini.org/css-properties-values-api)
 
 {% highlight javascript %}
-  CSS.registerProperty("--aspect-ratio",
-    applyHook,
-    {inherited: false,
-     grammar: "<number> | none",
-     initial: "none",
-     inputProperties: ["width", "height"],
-     outputProperties: ["height"]})
+CSS.registerProperty("--aspect-ratio",
+  applyHook,
+  {inherited: false,
+   grammar: "<number> | none",
+   initial: "none",
+   inputProperties: ["width", "height"],
+   outputProperties: ["height"]})
 {% endhighlight %}
 
 ## Apply Hooks
 
 {% highlight javascript %}
-  function(input, output) {
-    let ratio = input.get("ratio");
-    if(ratio.value == "none") {
-      output.set("height", input.get("height"));
-      return;
-    }
-    let width = input.get("width");
-    output.set("height", width.mult(ratio.value));
+function(input, output) {
+  let ratio = input.get("ratio");
+  if(ratio.value == "none") {
+    output.set("height", input.get("height"));
+    return;
   }
+  let width = input.get("width");
+  output.set("height", width.mult(ratio.value));
+}
 {% endhighlight %}
 
 ## Details
@@ -96,17 +96,17 @@ links:
 
 ## CSSOM Example
 {% highlight javascript %}
-  // Ranges are autocorrected later.
-  el.styleMap.set('opacity',
-    CSS.number(3));
+// Ranges are autocorrected later.
+el.styleMap.set('opacity',
+  CSS.number(3));
 
-  // Represents calc(10px + 3em)
-  el.styleMap.set('width',
-    CSS.calc({px:10, em: 3}));
+// Represents calc(10px + 3em)
+el.styleMap.set('width',
+  CSS.calc({px:10, em: 3}));
 
-  el.styleMap.set('transform',
-    [CSS.translate(CSS.length(20,'px')),
-     CSS.scale(1.5)])
+el.styleMap.set('transform',
+  [CSS.translate(CSS.length(20,'px')),
+   CSS.scale(1.5)])
 {% endhighlight %}
 
 ## Details
@@ -126,41 +126,40 @@ links:
 ## Custom Paint Example
 
 {% highlight javascript %}
-  registerPaint('circle', class {
-      static get inputProperties() { return ['--circle-color']; }
-      paint(ctx, geom, properties) {
-          // Change the fill color.
-          var color = properties.get('--circle-color');
-          ctx.fillStyle = color;
+registerPaint('circle', class {
+    static get inputProperties() { return ['--circle-color']; }
+    paint(ctx, geom, properties) {
+        // Change the fill color.
+        var color = properties.get('--circle-color');
+        ctx.fillStyle = color;
 
-          // Determine the center point and radius.
-          var x = geom.width / 2;
-          var y = geom.height / 2;
-          var radius = Math.min(x, y);
+        // Determine the center point and radius.
+        var x = geom.width / 2;
+        var y = geom.height / 2;
+        var radius = Math.min(x, y);
 
-          // Draw the circle \o/
-          ctx.beginPath();
-          ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
-          ctx.fill();
-      }
-  });
+        // Draw the circle \o/
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+        ctx.fill();
+    }
+});
 {% endhighlight %}
 
 ## CSS Usage
 
 {% highlight html %}
-  <div id="myElement">
-      CSS is awesome.
-  </div>
+<div id="myElement">
+  CSS is awesome.
+</div>
 
-  <style>
-  #myElement {
-      --circle-color: red;
-      background-image: paint(circle);
-  }
-  </style>
+<style>
+#myElement {
+  --circle-color: red;
+  background-image: paint(circle);
+}
+</style>
 {% endhighlight %}
-
 
 ## Details
 
@@ -183,17 +182,17 @@ links:
 
 ## Example
 {% highlight css %}
-  @--svg square {
-      @--rect {
-          fill: var(--color, black);
-          width: 100%;
-          height: 100%;
-      }
+@--svg square {
+  @--rect {
+    fill: var(--color, black);
+    width: 100%;
+    height: 100%;
   }
+}
 
-  .example {
-      background: white svg(square param(--color #00b1ff)) cover;
-  }
+.example {
+  background: white svg(square param(--color #00b1ff)) cover;
+}
 {% endhighlight %}
 
 ## Timeline

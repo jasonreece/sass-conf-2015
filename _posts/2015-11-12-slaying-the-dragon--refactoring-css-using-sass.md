@@ -86,32 +86,32 @@ slides: http://alicialiu.me/talks
 * .`menu.blue` => `.menu.menu-cool`
 
 {% highlight html %}
-  <div class="menu menu-wide menu-blue"></div>
+<div class="menu menu-wide menu-blue"></div>
 {% endhighlight %}
 
 ## Single Class
 
 {% highlight scss %}
-  .cool-menu {
-    @include menu($blue);
-    width: $menu-wide-width;
-    // more styles here
-  }
+.cool-menu {
+  @include menu($blue);
+  width: $menu-wide-width;
+  // more styles here
+}
 {% endhighlight %}
 
 ## Code Organization
 {% highlight scss %}
-  @import 'third-party-stuff';
-  @import 'variables';
-  @import 'mixins';
-  @import 'fonts';
-  @import 'base';
-  @import 'layout';
-  @import 'nav';
-  @import 'alerts';
-  @import 'comments';
-  @import 'footer';
-  @import 'responsive';
+@import 'third-party-stuff';
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+@import 'base';
+@import 'layout';
+@import 'nav';
+@import 'alerts';
+@import 'comments';
+@import 'footer';
+@import 'responsive';
 {% endhighlight %}
 
 ## How many CSS Files?
@@ -130,4 +130,3 @@ slides: http://alicialiu.me/talks
 * Regular expressions are your friend
 * Search everywhere: JS, HTML, backend code
 * Test as you go
-
